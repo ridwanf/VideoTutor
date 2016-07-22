@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Acme video Management</title>
+
+    <!-- Style sheets -->
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/app.css" rel="stylesheet" />
+    <link href="Content/toastr.css" rel="stylesheet" />
+
+    <!-- Library Scripts -->
+    <script src="Scripts/jquery.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-resource.js"></script>
+    <script src="Scripts/angular-mocks.js"></script>
+    <script src="Scripts/angular-ui-router.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/ui-utils.js"></script>
+    <script src="Scripts/ui-bootstrap-tpls-0.11.0.js"></script>
+    <script src="Scripts/toastr.js"></script>
+    <script src="Scripts/d3.js"></script>
+    <script src="Scripts/angular-charts.min.js"></script>
+
+    <!-- Application Script -->
+    <script src="app/app.js"></script>
+
+    <!--services-->
+    <script src="common/services/common.services.js"></script>
+    <script src="common/services/videoResource.js"></script>
+    <script src="common/services/levelResource.js"></script>
+    <script src="common/directives/starRatingDirective.js"></script>
+    <!-- <script src="common/services/videoResourceMock.js"></script>-->
+    <!--<script src="common/services/videoService.js"></script>-->
+
+    <!-- video Controllers -->
+    <script src="app/videos/videoListCtrl.js"></script>
+    <script src="app/videos/videoEditCtrl.js"></script>
+    <script src="app/videos/videoDetailCtrl.js"></script>
+
+    <!--price Controller-->
+    <!--<script src="app/prices/priceAnalyticsCtrl.js"></script>-->
+</head>
+
+<body ng-app="videoManagement">
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <a class="navbar-brand" ui-sref="home">Acme Video Management</a>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a ui-sref="videoList">Video List</a></li>
+                    <li>
+                        <a ui-sref="videoEdit({videoId:0})">
+                            <i class="glyphicon glyphicon-plus"></i> Add video
+                        </a>
+                    </li>
+                    <li><a ui-sref="priceAnalytics">Price Analytics</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div ui-view></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoTutor.Repository", "VideoTutor.Repository\VideoTutor.Repository.csproj", "{E14FBE17-10CF-4DB8-BC0A-7D7E1BED9E70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoTutor.Data", "VideoTutor.Data\VideoTutor.Data.csproj", "{CDC683F3-C2AB-4530-96E2-5011B4BFC9F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoTutor.RepositoryTest", "VideoTutor.RepositoryTest\VideoTutor.RepositoryTest.csproj", "{C6A6B329-7A9E-434D-B764-160489C78B5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoTutor.WebAPI", "VideoTutor.WebAPI\VideoTutor.WebAPI.csproj", "{2B6EC9B2-97E5-4B2F-8C4B-3FC112B0B307}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "VideoTutor.Client", "http://localhost:43764", "{00AE527D-939C-4E83-8C21-9507E7E36ADF}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.1"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_43764"
+		Debug.AspNetCompiler.PhysicalPath = "VideoTutor.Client\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_43764\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_43764"
+		Release.AspNetCompiler.PhysicalPath = "VideoTutor.Client\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_43764\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "VideoTutor.Client\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoTutor.ControllerTest", "VideoTutor.ControllerTest\VideoTutor.ControllerTest.csproj", "{950F9339-0279-4C71-88ED-0BCA92EC73C5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E14FBE17-10CF-4DB8-BC0A-7D7E1BED9E70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E14FBE17-10CF-4DB8-BC0A-7D7E1BED9E70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E14FBE17-10CF-4DB8-BC0A-7D7E1BED9E70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E14FBE17-10CF-4DB8-BC0A-7D7E1BED9E70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDC683F3-C2AB-4530-96E2-5011B4BFC9F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDC683F3-C2AB-4530-96E2-5011B4BFC9F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDC683F3-C2AB-4530-96E2-5011B4BFC9F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDC683F3-C2AB-4530-96E2-5011B4BFC9F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6A6B329-7A9E-434D-B764-160489C78B5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6A6B329-7A9E-434D-B764-160489C78B5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6A6B329-7A9E-434D-B764-160489C78B5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6A6B329-7A9E-434D-B764-160489C78B5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B6EC9B2-97E5-4B2F-8C4B-3FC112B0B307}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B6EC9B2-97E5-4B2F-8C4B-3FC112B0B307}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B6EC9B2-97E5-4B2F-8C4B-3FC112B0B307}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B6EC9B2-97E5-4B2F-8C4B-3FC112B0B307}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00AE527D-939C-4E83-8C21-9507E7E36ADF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00AE527D-939C-4E83-8C21-9507E7E36ADF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00AE527D-939C-4E83-8C21-9507E7E36ADF}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{00AE527D-939C-4E83-8C21-9507E7E36ADF}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{950F9339-0279-4C71-88ED-0BCA92EC73C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{950F9339-0279-4C71-88ED-0BCA92EC73C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{950F9339-0279-4C71-88ED-0BCA92EC73C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{950F9339-0279-4C71-88ED-0BCA92EC73C5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

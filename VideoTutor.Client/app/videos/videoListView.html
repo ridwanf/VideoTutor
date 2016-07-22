@@ -1,0 +1,38 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading"
+         style="font-size:large">
+        Video List
+    </div>
+
+    <div class="panel-body">
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <td>Title</td>
+                    <td>Author</td>
+                    <td>Release Date</td>
+                    <td>Source</td>
+                    <td>Size</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="video in vm.videos">
+                    <td>
+                        <a ui-sref="videoDetail({videoId:video.id})">
+                            {{ video.title}}
+                        </a>
+                    </td>
+                    <td>{{ video.author }}</td>
+                    <td>{{ video.releaseDate | date }}</td>
+                    <td>{{ video.source }}</td>
+                    <td>{{ video.size }}</td>
+                    <td>
+                        <a class="btn btn-primary" ui-sref="videoEdit({videoId:video.id})">
+                           Edit
+                        </a>
+</tr>
+            </tbody>
+        </table>
+    </div>
+</div>

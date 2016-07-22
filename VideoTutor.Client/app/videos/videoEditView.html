@@ -1,0 +1,209 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading"
+         style="font-size:large">
+        {{vm.title}}
+    </div>
+
+    <div class="panel-body">
+        <form class="form-horizontal"
+              name="videoForm"
+              novalidate>
+            <fieldset>
+                <legend>
+                    Video Information
+                </legend>
+                <div class="form-group"
+                     ng-class="{'has-error':videoForm.inputVideoTitle.$invalid &&
+                                    videoForm.inputVideoTitle.$dirty}">
+                    <label class="col-md-2 control-label" for="inputVideoTitle">
+                        Title
+                    </label>
+                    <div class="col-md-4">
+                        <textarea class="form-control"
+                               id="inputVideoTitle"
+                               name="inputVideoTitle"
+                               type="text"
+                               placeholder="Title"
+                               required
+                               ng-model="vm.video.title"
+                               ng-minlength="4" />
+                    </div>
+                    <span class="help-block has-error">
+                        <span ng-show="videoForm.inputVideoTitle.$error.required">
+                            Video title is required.
+                        </span>
+                    </span>
+                </div>
+                <div class="form-group"
+                     ng-class="{'has-error':videoForm.inputVideoLevel.$invalid &&
+                                    videoForm.inputVideoLevel.$dirty}">
+                    <label class="col-md-2 control-label" for="inputVideoLevel">
+                        Level
+                    </label>
+                    <div class="col-md-4">
+                        <select id="inputVideoLevel"
+                                class="form-control"
+                                name="inputVideoLevel"
+                                data-ng-model="vm.video.level">
+                            <option ng-repeat="op in vm.levels">{{op}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label"
+                           for="inputVideoReleaseDate">Release Date</label>
+
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <input class="form-control"
+                                   id="inputVideoReleaseDate"
+                                   type="text"
+                                   datepicker-popup="MMM dd, yyyy "
+                                   is-open="vm.opened"
+                                   ng-model="vm.video.releaseDate" />
+                            <span class="input-group-btn">
+                                <button class="btn btn-default"
+                                        ng-click="vm.open($event)">
+                                    <i class="glyphicon glyphicon-calendar" />
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="inputVideoAuthor">
+                        Author
+                    </label>
+                    <div class="col-md-4">
+                        <input class="form-control"
+                               id="inputVideoAuthor"
+                               name="inputVideoAuthor"
+                               type="text"
+                               placeholder="Author"
+                               ng-model="vm.video.author"
+                               ng-minlength="4" />
+                    </div>
+                </div>
+                <div class="form-group"
+                     ng-class="{'has-error':videoForm.inputVideoSize.$invalid &&
+                                    videoForm.inputVideoSize.$dirty}">
+
+                    <label class="col-md-2 control-label" for="inputVideoSize">
+                        Size
+                    </label>
+                    <div class="col-md-4">
+                        <input class="form-control"
+                               id="inputVideoSize"
+                               name="inputVideoSize"
+                               type="text"
+                               placeholder="Size (MB)"
+                               ng-pattern="vm.onlyNumbers"
+                               ng-model="vm.video.size" />
+                    </div>
+                    
+                    <span class="help-block has-error">
+                        <span ng-show="videoForm.inputVideoSize.$error.pattern">
+                            video size must be a number
+                        </span>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="inputVideoRating">
+                        Rating
+                    </label>
+                    <div class="col-md-4">
+                        <input class="form-control"
+                               id="inputVideoRating"
+                               name="inputVideoRating"
+                               type="text"
+                               placeholder="Rating"
+                               ng-model="vm.video.rating" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="inputVideoSource">
+                        Source
+                    </label>
+                    <div class="col-md-4">
+                        <input class="form-control"
+                               id="inputVideoSource"
+                               name="inputVideoSource"
+                               type="text"
+                               placeholder="Source"
+                               ng-model="vm.video.source" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="inputVideoIsHaveSub">
+                        Is Have Sub
+                    </label>
+                    <div class="col-md-1">
+                        <input class="form-control"
+                               id="inputVideoIsHaveSub"
+                               name="inputVideoIsHaveSub"
+                               type="checkbox"
+                               ng-checked="vm.video.isHaveSub"
+                               ng-model="vm.video.isHaveSub" />
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="inputSearchTech">Search Tech</label>
+                    <div class="col-md-4">
+                        <input class="form-control" id="inputSearchTech" type="text"
+                               placeholder="Video search keywords separated by commas"
+                               ng-model="vm.newTech" />
+                    </div>
+                    <div class="col-md-1">
+                        <button type="button"
+                                class="btn btn-default"
+                                title="Add the specified tags"
+                                ng-click="vm.addTech(vm.newTech)">
+                            Add
+                        </button>
+                    </div>
+                </div>
+                <div class="row col-md-8 col-md-offset-2">
+                    <span ng-repeat="technology in vm.video.techArray | orderBy">
+                        <button class="btn btn-default"
+                                style="font-size:smaller;margin-bottom:12px"
+                                ng-click="vm.removeTech($index)">
+                            {{technology}}
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                    </span>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-4 col-md-offset-2">
+                        <span>
+                            <button class="btn btn-primary"
+                                    style="width:80px;margin-right:10px"
+                                    ng-click="vm.submit()"
+                                    ng-disabled="videoForm.$invalid">
+                                Save
+                            </button>
+                        </span>
+                        <span>
+                            <button class="btn btn-default"
+                                    style="width:70px"
+                                    ng-click="vm.cancel(videoForm)">
+                                Cancel
+                            </button>
+                        </span>
+                    </div>
+                </div>
+
+
+                <div class="form-group"
+                     ng-show="vm.message">
+                    <div class="col-md-6">
+                        <pre style="font: inherit">{{vm.message }}</pre>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
