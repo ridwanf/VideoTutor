@@ -20,8 +20,14 @@ using System.Web;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Core;
+using Microsoft.Owin.Security;
+using Microsoft.Owin.Security.DataHandler;
+using Microsoft.Owin.Security.DataHandler.Encoder;
+using Microsoft.Owin.Security.DataHandler.Serializer;
+using Microsoft.Owin.Security.DataProtection;
 using VideoTutor.Data.Repositories;
 using VideoTutor.Repository;
+using VideoTutor.WebAPI.Models;
 
 namespace VideoTutor.WebAPI.DependencyResolution
 {
@@ -46,7 +52,13 @@ namespace VideoTutor.WebAPI.DependencyResolution
             For<IVideoRepository>().Use<VideoRepository>();
             //For<BundleCollection>().Use(BundleTable.Bundles);
             //For<RouteCollection>().Use(RouteTable.Routes);
-            //For<IIdentity>().Use(() => HttpContext.Current.User.Identity);
+            For<ISecureDataFormat<AuthenticationTicket>>().Use<SecureDataFormat<AuthenticationTicket>>();
+            For<IDataSerializer<AuthenticationTicket>>().Use<TicketSerializer>();
+            For<IDataProtector>().Use(() => new DpapiDataProtectionProvider().Create("ASP.NET Identity"));
+            For<ITextEncoder>().Use<Base64UrlTextEncoder>();
+
+            For<Microsoft.AspNet.Identity.IUserStore<ApplicationUser>>().Use<Microsoft.AspNet.Identity.EntityFramework.UserStore<ApplicationUser>>();
+            For<System.Data.Entity.DbContext>().Use(() => new ApplicationDbContext());
             //For<HttpSessionStateBase>()
             //    .Use(() => new HttpSessionStateWrapper(HttpContext.Current.Session));
             //For<HttpContextBase>()

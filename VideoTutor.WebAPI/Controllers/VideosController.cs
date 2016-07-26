@@ -14,6 +14,7 @@ using VideoTutor.Repository;
 
 namespace VideoTutor.WebAPI.Controllers
 {
+    //[Authorize]
     [EnableCors("*", "*", "*")]
     public class VideosController : ApiController
     {

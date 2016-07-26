@@ -9,7 +9,7 @@
 
 
     function levelResource($resource, appSettings) {
-        return $resource(appSettings.serverPath + "api/levels/", null, {
+        return $resource(appSettings.serverPath + "/api/levels/", null, {
 
         });
     }
