@@ -5,7 +5,12 @@
         [
             "common.services",
             "ui.router",
-            "ui.bootstrap"
+            "ui.bootstrap",
+            "ngTouch",
+            "ui.grid",
+            "ui.grid.resizeColumns",
+            "ui.grid.autoResize",
+            "ui.grid.pagination"
         ]);
 
     app.config(["$stateProvider", "$urlRouterProvider",

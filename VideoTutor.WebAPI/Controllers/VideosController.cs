@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Reflection;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using System.Web.OData;
+using System.Web.UI.WebControls;
 using Core;
 using StructureMap.Query;
 using VideoTutor.Data.Domain;
 using VideoTutor.Repository;
+using VideoTutor.WebAPI.Models;
+using VideoTutor.WebAPI.Utility;
 
 namespace VideoTutor.WebAPI.Controllers
 {
@@ -29,12 +33,21 @@ namespace VideoTutor.WebAPI.Controllers
 
         // GET: api/Video
         [EnableQuery()]
-        [ResponseType(typeof(Video))]
-        public IHttpActionResult Get()
+        //  [ResponseType(typeof(PagerModel<Video>))]
+        public IHttpActionResult Get(int pageNumber, int pageSize)
         {
             try
             {
-                return Ok(_videoRepository.FindAll().AsQueryable());
+                var total = _videoRepository.FindAll().Count();
+                var data = new PagerModel<Video>
+                {
+                    Data = _videoRepository.FindAll().OrderBy(i=>i.Id).Skip((pageNumber - 1) * pageSize)
+                                    .Take(pageSize),
+                    PageNumber = pageNumber,
+                    PageSize = pageSize,
+                    Total = total,
+                };
+                return Ok(data);
             }
             catch (Exception e)
             {
@@ -44,10 +57,21 @@ namespace VideoTutor.WebAPI.Controllers
 
         // GET: api/Products?search=GDN
         [EnableQuery()]
-        public IHttpActionResult Get(string search)
+        public IHttpActionResult Get(string search, int pageNumber, int pageSize)
         {
-            return Ok(_videoRepository.FindBy(p => p.Title
-                .Contains(search)).AsQueryable());
+            var total = _videoRepository.FindBy(p => p.Title
+                .Contains(search)).Count();
+
+             var data = new PagerModel<Video>
+                {
+                    Data = _videoRepository.FindBy(p => p.Title.Contains(search)).OrderBy(i=>i.Id).Skip((pageNumber - 1) * pageSize)
+                                    .Take(pageSize),
+                    PageNumber = pageNumber,
+                    PageSize = pageSize,
+                    Total = total,
+                };
+
+            return Ok(data);
         }
 
         // GET: api/Video/5

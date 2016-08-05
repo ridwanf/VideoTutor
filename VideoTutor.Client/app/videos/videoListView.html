@@ -5,34 +5,45 @@
     </div>
 
     <div class="panel-body">
-        <table class="table">
+        <div class="form-group">
+            <div class="col-md-4">
+                <input ng-model="vm.searchCriteria" ng-change="vm.searchData()" placeholder="Search..." class="form-control">
+            </div>
+        </div>
+        <br />
+        <br />
+        <div id="grid1" ui-grid="vm.videoGrid" ui-grid-resize-columns ui-grid-pagination class="grid">
 
-            <thead>
-                <tr>
-                    <td>Title</td>
-                    <td>Author</td>
-                    <td>Release Date</td>
-                    <td>Source</td>
-                    <td>Size</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="video in vm.videos">
-                    <td>
-                        <a ui-sref="videoDetail({videoId:video.id})">
-                            {{ video.title}}
-                        </a>
-                    </td>
-                    <td>{{ video.author }}</td>
-                    <td>{{ video.releaseDate | date }}</td>
-                    <td>{{ video.source }}</td>
-                    <td>{{ video.size }}</td>
-                    <td>
+        </div>
+
+        <!--<table class="table table-striped" st-table="vm.videos">
+
+                <thead>
+                    <tr>
+                        <td st-sort="Title">Title</td>
+                        <td st-sort="author">Author</td>
+                        <td st-sort="releaseDate">Release Date</td>
+                        <td st-sort="source">Source</td>
+                        <td st-sort="size">Size</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="video in vm.videos">
+                        <td>
+                            <a ui-sref="videoDetail({videoId:video.id})">
+                                {{ video.title}}
+                            </a>
+                        </td>
+                        <td>{{ video.author }}</td>
+                        <td>{{ video.releaseDate | date }}</td>
+                        <td>{{ video.source }}</td>
+                        <td>{{ video.size }}</td>
+                        <td>
                         <a class="btn btn-primary" ui-sref="videoEdit({videoId:video.id})">
-                           Edit
+                            Edit
                         </a>
-</tr>
-            </tbody>
-        </table>
+                    </tr>
+                </tbody>
+            </table>-->
     </div>
 </div>

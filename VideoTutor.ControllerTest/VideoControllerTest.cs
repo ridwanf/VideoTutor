@@ -18,7 +18,7 @@ namespace VideoTutor.ControllerTest
         public void ControllerCanGetData()
         {
             var controler = new VideosController(unitOfWorkFactory, repo);
-            var data = controler.Get();
+            var data = controler.Get(1,10);
             Assert.IsNotNull(data);
         }
 

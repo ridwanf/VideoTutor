@@ -11,10 +11,15 @@
 
     function videoResource($resource, appSettings, currentUser) {
         return $resource(appSettings.serverPath + "/api/videos/:id", null, {
-            'get': {
-                headers: { 'Authorization': 'Bearer ' + currentUser.getProfile().token }
+            'search': {
+                method: 'GET',
+                params: { search: '@search', pageSize: '@pageSize', pageNumber: '@pageNumber' },
+                headers: { 'Authorization': 'Bearer ' + currentUser.getProfile().token },
             },
-
+            'get': {
+                params: { pageSize: '@pageSize', pageNumber: '@pageNumber' },
+                headers: { 'Authorization': 'Bearer ' + currentUser.getProfile().token },
+            },
             'save': {
                 headers: { 'Authorization': 'Bearer ' + currentUser.getProfile().token }
             },
@@ -23,7 +28,7 @@
                 method: 'PUT',
                 headers: { 'Authorization': 'Bearer ' + currentUser.getProfile().token }
             }
-            
+
         });
     }
 }());

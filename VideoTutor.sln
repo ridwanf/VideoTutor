@@ -35,6 +35,12 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "VideoTutor.Client", "http:/
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoTutor.ControllerTest", "VideoTutor.ControllerTest\VideoTutor.ControllerTest.csproj", "{950F9339-0279-4C71-88ED-0BCA92EC73C5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{ED308C94-ED7C-4B38-BC66-4385F9AFF6D1}"
+	ProjectSection(SolutionItems) = preProject
+		lib\Core.dll = lib\Core.dll
+		lib\Core.pdb = lib\Core.pdb
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
